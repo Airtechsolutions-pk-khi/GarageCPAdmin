@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="63411c1d7f414cc19d548e4e99b0a25d" Name="Diagram1" ZoomLevel="40">
+        <EntityTypeShape EntityType="Garage_UATModel.Bay" Width="1.5" PointX="15.75" PointY="99.75" />
+        <EntityTypeShape EntityType="Garage_UATModel.CarInspection" Width="1.5" PointX="5.25" PointY="66.25" />
+        <EntityTypeShape EntityType="Garage_UATModel.CarInspectionDetail" Width="1.5" PointX="7.5" PointY="66" />
+        <EntityTypeShape EntityType="Garage_UATModel.CarInspectionMapping" Width="1.5" PointX="26.25" PointY="74.5" />
+        <EntityTypeShape EntityType="Garage_UATModel.CarNote" Width="1.5" PointX="23.25" PointY="85.75" />
+        <EntityTypeShape EntityType="Garage_UATModel.CarNotesImage" Width="1.5" PointX="25.5" PointY="86.25" />
+        <EntityTypeShape EntityType="Garage_UATModel.Car" Width="1.5" PointX="8.25" PointY="76" />
+        <EntityTypeShape EntityType="Garage_UATModel.Category" Width="1.5" PointX="6" PointY="71.375" />
+        <EntityTypeShape EntityType="Garage_UATModel.City" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Garage_UATModel.Company" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Garage_UATModel.Country" Width="1.5" PointX="11.25" PointY="65.25" />
+        <EntityTypeShape EntityType="Garage_UATModel.Customer" Width="1.5" PointX="6" PointY="58.75" />
+        <EntityTypeShape EntityType="Garage_UATModel.Discount" Width="1.5" PointX="15.75" PointY="95.375" />
+        <EntityTypeShape EntityType="Garage_UATModel.ErrorLog" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Garage_UATModel.ErrorLog1" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Garage_UATModel.Integration" Width="1.5" PointX="5.25" PointY="84.25" />
+        <EntityTypeShape EntityType="Garage_UATModel.inv_Bill" Width="1.5" PointX="22" PointY="66" />
+        <EntityTypeShape EntityType="Garage_UATModel.inv_BillDetail" Width="1.5" PointX="24.25" PointY="68.875" />
+        <EntityTypeShape EntityType="Garage_UATModel.inv_PurchaseOrder" Width="1.5" PointX="18.75" PointY="78.125" />
+        <EntityTypeShape EntityType="Garage_UATModel.inv_PurchaseOrderDetail" Width="1.5" PointX="24" PointY="74" />
+        <EntityTypeShape EntityType="Garage_UATModel.inv_Stock" Width="1.5" PointX="18.75" PointY="61" />
+        <EntityTypeShape EntityType="Garage_UATModel.inv_StockIssue" Width="1.5" PointX="27.25" PointY="67.125" />
+        <EntityTypeShape EntityType="Garage_UATModel.inv_StockIssueDetail" Width="1.5" PointX="24.75" PointY="64.375" />
+        <EntityTypeShape EntityType="Garage_UATModel.inv_StockRequest" Width="1.5" PointX="19" PointY="66.5" />
+        <EntityTypeShape EntityType="Garage_UATModel.inv_StockRequestDetail" Width="1.5" PointX="21.25" PointY="72.375" />
+        <EntityTypeShape EntityType="Garage_UATModel.inv_StockStore" Width="1.5" PointX="30" PointY="69.5" />
+        <EntityTypeShape EntityType="Garage_UATModel.Inventory" Width="1.5" PointX="25.75" PointY="79.625" />
+        <EntityTypeShape EntityType="Garage_UATModel.Item" Width="1.5" PointX="16.5" PointY="68.75" />
+        <EntityTypeShape EntityType="Garage_UATModel.License" Width="1.5" PointX="8.25" PointY="71.375" />
+        <EntityTypeShape EntityType="Garage_UATModel.Location" Width="1.5" PointX="13.5" PointY="68.125" />
+        <EntityTypeShape EntityType="Garage_UATModel.Make" Width="1.5" PointX="6" PointY="93.375" />
+        <EntityTypeShape EntityType="Garage_UATModel.Model" Width="1.5" PointX="6" PointY="88.625" />
+        <EntityTypeShape EntityType="Garage_UATModel.Modifier" Width="1.5" PointX="18.75" PointY="72" />
+        <EntityTypeShape EntityType="Garage_UATModel.OrderCheckout" Width="1.5" PointX="28.25" PointY="80" />
+        <EntityTypeShape EntityType="Garage_UATModel.OrderCheckoutDetail" Width="1.5" PointX="30.5" PointY="81.625" />
+        <EntityTypeShape EntityType="Garage_UATModel.OrderDetail" Width="1.5" PointX="23.25" PointY="79.5" />
+        <EntityTypeShape EntityType="Garage_UATModel.OrderDetail_FM" Width="1.5" PointX="31.5" PointY="76.25" />
+        <EntityTypeShape EntityType="Garage_UATModel.OrderInspectionMapping" Width="1.5" PointX="20.25" PointY="105.5" />
+        <EntityTypeShape EntityType="Garage_UATModel.Order" Width="1.5" PointX="18" PointY="84.125" />
+        <EntityTypeShape EntityType="Garage_UATModel.OrdersChecklist" Width="1.5" PointX="20.25" PointY="101.25" />
+        <EntityTypeShape EntityType="Garage_UATModel.Receipt" Width="1.5" PointX="15.75" PointY="77.375" />
+        <EntityTypeShape EntityType="Garage_UATModel.ReportLog" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="Garage_UATModel.Role_Forms" Width="1.5" PointX="15.75" PointY="109.5" />
+        <EntityTypeShape EntityType="Garage_UATModel.Role_Group" Width="1.5" PointX="15.75" PointY="103.75" />
+        <EntityTypeShape EntityType="Garage_UATModel.Role_GroupForms" Width="1.5" PointX="18" PointY="104" />
+        <EntityTypeShape EntityType="Garage_UATModel.SessionInfo" Width="1.5" PointX="29.25" PointY="74.625" />
+        <EntityTypeShape EntityType="Garage_UATModel.Status" Width="1.5" PointX="0.75" PointY="71.625" />
+        <EntityTypeShape EntityType="Garage_UATModel.Store" Width="1.5" PointX="15.75" PointY="61" />
+        <EntityTypeShape EntityType="Garage_UATModel.SubCategory" Width="1.5" PointX="11.25" PointY="71.25" />
+        <EntityTypeShape EntityType="Garage_UATModel.SubUser" Width="1.5" PointX="21" PointY="80.875" />
+        <EntityTypeShape EntityType="Garage_UATModel.Supplier" Width="1.5" PointX="5.25" PointY="76.5" />
+        <EntityTypeShape EntityType="Garage_UATModel.TimeZone" Width="1.5" PointX="0.75" PointY="68.125" />
+        <EntityTypeShape EntityType="Garage_UATModel.Unit" Width="1.5" PointX="14.25" PointY="56.5" />
+        <EntityTypeShape EntityType="Garage_UATModel.User" Width="1.5" PointX="3" PointY="68.875" />
+        <AssociationConnector Association="Garage_UATModel.FK_Bay_Locations" />
+        <AssociationConnector Association="Garage_UATModel.FK_Orders_Bay" />
+        <AssociationConnector Association="Garage_UATModel.FK_CarInspection_Users" />
+        <AssociationConnector Association="Garage_UATModel.FK_CarInspectionDetails_CarInspection" />
+        <AssociationConnector Association="Garage_UATModel.FK_CarInspectionMapping_CarInspectionMapping" />
+        <AssociationConnector Association="Garage_UATModel.FK_CarInspectionMapping_Locations" />
+        <AssociationConnector Association="Garage_UATModel.FK_CarInspectionMapping_Orders" />
+        <AssociationConnector Association="Garage_UATModel.FK_CarNotes_Locations" />
+        <AssociationConnector Association="Garage_UATModel.FK_CarNotes_Orders" />
+        <AssociationConnector Association="Garage_UATModel.FK_CarNotesImages_CarNotes" />
+        <AssociationConnector Association="Garage_UATModel.FK_Cars_Customers" />
+        <AssociationConnector Association="Garage_UATModel.FK_Cars_Make" />
+        <AssociationConnector Association="Garage_UATModel.FK_Cars_Model" />
+        <AssociationConnector Association="Garage_UATModel.FK_Cars_Users" />
+        <AssociationConnector Association="Garage_UATModel.FK_Orders_Cars" />
+        <AssociationConnector Association="Garage_UATModel.FK_Category_Locations" />
+        <AssociationConnector Association="Garage_UATModel.FK_Category_Status" />
+        <AssociationConnector Association="Garage_UATModel.FK_SubCategory_Category" />
+        <AssociationConnector Association="Garage_UATModel.FK_Locations_Country" />
+        <AssociationConnector Association="Garage_UATModel.FK_SubUsers_Country" />
+        <AssociationConnector Association="Garage_UATModel.FK_Users_Country" />
+        <AssociationConnector Association="Garage_UATModel.FK_Discount_Locations" />
+        <AssociationConnector Association="Garage_UATModel.FK_Integration_Users" />
+        <AssociationConnector Association="Garage_UATModel.FK_Bill_Locations" />
+        <AssociationConnector Association="Garage_UATModel.FK_Bill_PurchaseOrder" />
+        <AssociationConnector Association="Garage_UATModel.FK_BillDetail_Bill" />
+        <AssociationConnector Association="Garage_UATModel.FK_inv_Bill_Stores" />
+        <AssociationConnector Association="Garage_UATModel.FK_BillDetail_Items" />
+        <AssociationConnector Association="Garage_UATModel.FK_PurchaseOrder_Locations" />
+        <AssociationConnector Association="Garage_UATModel.FK_PurchaseOrder_Supplier" />
+        <AssociationConnector Association="Garage_UATModel.FK_PurchaseOrderDetail_PurchaseOrder" />
+        <AssociationConnector Association="Garage_UATModel.FK_PurchaseOrderDetail_Items" />
+        <AssociationConnector Association="Garage_UATModel.FK_inv_Stock_Stores" />
+        <AssociationConnector Association="Garage_UATModel.FK_inv_Stock_Users" />
+        <AssociationConnector Association="Garage_UATModel.FK_Stock_Items" />
+        <AssociationConnector Association="Garage_UATModel.FK_inv_StockIssue_inv_StockRequest" />
+        <AssociationConnector Association="Garage_UATModel.FK_inv_StockIssue_Stores" />
+        <AssociationConnector Association="Garage_UATModel.FK_inv_StockIssue_Stores1" />
+        <AssociationConnector Association="Garage_UATModel.FK_inv_StockIssue_Users" />
+        <AssociationConnector Association="Garage_UATModel.FK_inv_StockIssueDetail_inv_StockIssue" />
+        <AssociationConnector Association="Garage_UATModel.FK_inv_StockIssueDetail_Items" />
+        <AssociationConnector Association="Garage_UATModel.FK_inv_StockRequest_Locations" />
+        <AssociationConnector Association="Garage_UATModel.FK_inv_StockRequest_Stores" />
+        <AssociationConnector Association="Garage_UATModel.FK_inv_StockRequest_Stores1" />
+        <AssociationConnector Association="Garage_UATModel.FK_inv_StockRequestDetail_inv_StockRequest" />
+        <AssociationConnector Association="Garage_UATModel.FK_inv_StockRequestDetail_Items" />
+        <AssociationConnector Association="Garage_UATModel.FK_inv_StockRequestDetail_Units" />
+        <AssociationConnector Association="Garage_UATModel.FK_inv_StockStore_Inventory" />
+        <AssociationConnector Association="Garage_UATModel.FK_inv_StockStore_Stores" />
+        <AssociationConnector Association="Garage_UATModel.FK_inv_StockStore_Users" />
+        <AssociationConnector Association="Garage_UATModel.FK_Inventory_Items" />
+        <AssociationConnector Association="Garage_UATModel.FK_Inventory_Locations" />
+        <AssociationConnector Association="Garage_UATModel.FK_Inventory_Supplier" />
+        <AssociationConnector Association="Garage_UATModel.FK_Inventory_Units" />
+        <AssociationConnector Association="Garage_UATModel.FK_Items_Status" />
+        <AssociationConnector Association="Garage_UATModel.FK_Items_SubCategory" />
+        <AssociationConnector Association="Garage_UATModel.FK_Items_Units" />
+        <AssociationConnector Association="Garage_UATModel.FK_OrderDetail_Items" />
+        <AssociationConnector Association="Garage_UATModel.FK_Licenses_Status" />
+        <AssociationConnector Association="Garage_UATModel.FK_Licenses_Users" />
+        <AssociationConnector Association="Garage_UATModel.FK_Locations_Licenses" />
+        <AssociationConnector Association="Garage_UATModel.FK_Locations_Status" />
+        <AssociationConnector Association="Garage_UATModel.FK_Locations_TimeZone" />
+        <AssociationConnector Association="Garage_UATModel.FK_Locations_Users" />
+        <AssociationConnector Association="Garage_UATModel.FK_Modifiers_Locations" />
+        <AssociationConnector Association="Garage_UATModel.FK_OrderCheckout_Locations" />
+        <AssociationConnector Association="Garage_UATModel.FK_Orders_Locations" />
+        <AssociationConnector Association="Garage_UATModel.FK_Receipt_Locations" />
+        <AssociationConnector Association="Garage_UATModel.FK_Role_Group_Locations" />
+        <AssociationConnector Association="Garage_UATModel.FK_SessionInfo_Locations" />
+        <AssociationConnector Association="Garage_UATModel.FK_Stores_Locations" />
+        <AssociationConnector Association="Garage_UATModel.FK_SubUsers_Locations" />
+        <AssociationConnector Association="Garage_UATModel.FK_Model_Make" />
+        <AssociationConnector Association="Garage_UATModel.FK_Modifiers_Units" />
+        <AssociationConnector Association="Garage_UATModel.FK_OrderDetail_FM_Modifiers" />
+        <AssociationConnector Association="Garage_UATModel.FK_OrderCheckout_Orders" />
+        <AssociationConnector Association="Garage_UATModel.FK_OrderCheckout_SubUsers" />
+        <AssociationConnector Association="Garage_UATModel.FK_OrderCheckout_SubUsers1" />
+        <AssociationConnector Association="Garage_UATModel.FK_OrderCheckout_SubUsers2" />
+        <AssociationConnector Association="Garage_UATModel.FK_OrderCheckoutDetails_OrderCheckout" />
+        <AssociationConnector Association="Garage_UATModel.FK_OrderDetail_FM_OrderDetail" />
+        <AssociationConnector Association="Garage_UATModel.FK_OrderDetail_Orders" />
+        <AssociationConnector Association="Garage_UATModel.FK_OrderInspectionMapping_Orders" />
+        <AssociationConnector Association="Garage_UATModel.FK_Orders_SubUsers" />
+        <AssociationConnector Association="Garage_UATModel.FK_OrdersChecklist_Orders" />
+        <AssociationConnector Association="Garage_UATModel.FK_Role_GroupForms_Role_Forms" />
+        <AssociationConnector Association="Garage_UATModel.FK_Role_GroupForms_Role_Group" />
+        <AssociationConnector Association="Garage_UATModel.FK_SubUsers_Role_Group" />
+        <AssociationConnector Association="Garage_UATModel.FK_SessionInfo_SubUsers" />
+        <AssociationConnector Association="Garage_UATModel.FK_SubCategory_Status" />
+        <AssociationConnector Association="Garage_UATModel.FK_SubUsers_Status" />
+        <AssociationConnector Association="Garage_UATModel.FK_Users_Status" />
+        <AssociationConnector Association="Garage_UATModel.FK_SubUsers_Users" />
+        <AssociationConnector Association="Garage_UATModel.FK_Supplier_Users" />
+        <AssociationConnector Association="Garage_UATModel.FK_Users_TimeZone" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

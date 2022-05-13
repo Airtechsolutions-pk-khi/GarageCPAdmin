@@ -1,5 +1,6 @@
 ﻿using BAL.Repositories;
 using DAL.DBEntities;
+using DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,52 @@ namespace CPGarageAdmin.Controllers
 {
     public class BroadcastController : Controller
     {
-        customersRepository repo;
+        broadcastRepository repo;
         public BroadcastController()
         {
-            repo = new customersRepository(new Garage_UATEntities());
+            repo = new broadcastRepository(new Garage_UATEntities());
 
+        }
+
+        [HttpPost]
+        public JsonResult Send(BroadcastViewModel modal, string isEmail)
+        {
+            bool isSuccess = false;
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    if (isEmail == "Email")
+                    {
+                        var cusemail = repo.SendEmailCustomer(modal);
+                        var adminemail = repo.SendEmailToAdmin(modal);
+                        if (cusemail == 1 && adminemail == 1)
+
+                            return Json(new { success = true });
+                        else
+                            return Json(new { success = false });
+                    }
+                    else
+                    {
+                        var sms = repo.Smsdirect(modal);
+                        if (sms == "success")
+
+                            return Json(new { success = true });
+                        else
+                            return Json(new { success = false });
+
+                    }
+                }
+
+                catch (Exception ex)
+                {
+
+                    throw;
+                }
+            }
+            else { 
+            return Json(new { success = isSuccess }, JsonRequestBehavior.AllowGet);
+            }
         }
         // GET: itemmovement
         public ActionResult Broadcast(int? userid, string fDate, string tDate)
@@ -32,24 +74,5 @@ namespace CPGarageAdmin.Controllers
             return View();
         }
 
-
-        //[HttpGet]
-        //public ActionResult Search(int userid, string fDate, string tDate)
-        //{
-        //    var data = repo.GetCustomerSMSBills(userid, fDate, tDate);
-
-        //    return View("list", "sms", data);
-
-        //}
-
-
-        //[HttpGet]
-        //public ActionResult print(string companyname, string smscount, string fromdate, string todate, string total, string userid)
-        //{
-        //    var data = repo.GetInvoicePrint(companyname, smscount, fromdate, todate, total, int.Parse(userid));
-
-        //    return Json(new { status = data == "" ? 0 : 1, url = data }, JsonRequestBehavior.AllowGet);
-
-        //}
     }
 }

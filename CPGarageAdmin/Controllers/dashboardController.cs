@@ -30,5 +30,16 @@ namespace CPGarageAdmin.Controllers
                 return View();
             }
         }
+        public ActionResult Post(Customer customer)
+        {
+            using (Garage_UATEntities entities = new Garage_UATEntities())
+            {
+                entities.Customers.Add(customer);
+                entities.SaveChanges();
+                int id = customer.CustomerID;
+            }
+            return View(customer);
+            
+        }
     }
 }

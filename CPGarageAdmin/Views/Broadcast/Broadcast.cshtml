@@ -1,11 +1,10 @@
-﻿@model IEnumerable<DAL.Models.SmsBilling>
+﻿@model IEnumerable<DAL.Models.BroadcastViewModel>
 @{
     ViewBag.Title = "Broadcast";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
-    
 
     <style>
         h1 {
@@ -35,143 +34,141 @@
         }
     </style>
 </head>
-<div class="card">
+@*<script type="text/javascript">
+    function UserSuccess(result) {
+        if (result.success) {
+            window.location.href = "/broadcast/Broadcast";
+        }
+        else {
+            alert("Email/SMS Cannot send successfully")
+        }
+    }
+
+</script>*@
+<div class="card col-lg-12">
     <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
-    <div class="card-body">
+    <div class="card-body col-lg-12 ">
         <div class="row form-group">
-            <div class="col-12">
+            <div class="col-12 ">
                 <h4 class="card-title m-0">Broadcast</h4>
             </div>
+        </div>
+        <div class="container">
+            <div class="row ">
+                <div class="col-12 grid-margin stretch-card ">
+                    <div class="container">
+                        @*@using (Html.BeginForm("Send", "Broadcast", FormMethod.Post, new { enctype = "multipart/form-data" }))*@
+                        @using (Ajax.BeginForm("Send", "Broadcast", new AjaxOptions { HttpMethod = "POST",
+                            OnSuccess = "OnSuccess",
+                            OnFailure = "OnFailure",
+                        }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <form id="contact-form" role="form">
+                                <div class="controls">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="form_name">Select Customer to send SMS/EMAIL *</label>
+                                                <div class="row d-flex justify-content-center mt-100">
+                                                    <div class="col-md-12 ">
+                                                        <select id="choices-multiple-remove-button" name="Email" class="form-control" placeholder="Select Customers" multiple>
+                                                            @foreach (var item in ViewBag.Users)
+                                                            {
+                                                                <option value="@item.Email">@item.Email</option>
+                                                            }
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-            @*<div class="col-6">
-                <div class="row d-flex justify-content-center mt-100">
-                    <div class="col-md-6">
-                        <select id="choices-multiple-remove-button" placeholder="Select Customers" multiple>
-                            @foreach (var item in ViewBag.Users)
-                            {
-                                <option value="HTML">@item.Email</option>
-                            }
-                        </select>
+                                    <div class="row">
+                                        <div id="ifYes" class="col-md-12">
+                                            <div class="form-group"> <label for="form_subject">Subject </label> <textarea id="form_subject" name="subject" class="form-control" placeholder="Write your subject here." rows="2" data-error="Please, leave us a message."></textarea> </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group"> <label for="form_message">Message *</label> <textarea id="form_message" name="message" class="form-control" placeholder="Write your message here." rows="5" required="required" data-error="Please, leave us a message."></textarea> </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend" style="height:38px;">
+                                                    <span class="input-group-text" id="inputGroupFileAddon01" style="color:#333; font-size:0.875rem;">Upload</span>
+                                                </div>
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" id="inputGroupFile01" name="Docs"
+                                                           aria-describedby="inputGroupFileAddon01">
+                                                    <label class="custom-file-label" for="inputGroupFile01" style="font-size:15px;">Choose file</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12" style="padding-top:20px;">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" onclick="javascript:yesnoCheck();" type="radio" name="isEmail" value="SMS" id="noCheck">
+                                                    <label class="form-check-label" for="flexRadioDefault1">
+                                                        SMS
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" onclick="javascript:yesnoCheck();" type="radio" name="isEmail" id="yesCheck" value="Email" checked>
+                                                    <label class="form-check-label" for="flexRadioDefault2">
+                                                        EMAIL
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        @*<div class="col-md-3" style="padding-top:20px;"> <input type="submit" class="btn btn-warning btn-send pt-2 btn-block " value="Send Message"> </div>*@
+                                        <button type="submit" class="btn btn-primary mr-2">Send</button>
+                                    </div>
+
+                                </div>
+                            </form>
+                        }
                     </div>
                 </div>
-            </div>*@
-        </div>
-
-        <hr />
-
-        <div class="container">
-           
-            <div class="row ">
-                <div class="col-lg-12 mx-auto">
-                    <div class="card mt-2 mx-auto p-4 bg-light">
-                        <div class="card-body bg-light">
-                            <div class="container">
-                                <form id="contact-form" role="form">
-                                    <div class="controls">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label for="form_name">Select Customer to send SMS/EMAIL *</label>
-                                                    <div class="row d-flex justify-content-center mt-100">
-                                                        <div class="col-md-12 ">
-                                                            <select id="choices-multiple-remove-button" class="form-control" placeholder="Select Customers" multiple>
-                                                                @foreach (var item in ViewBag.Users)
-                                                                {
-                                                                    <option value="HTML">@item.Email</option>
-                                                                }
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        @*<div class="row pt-3">
-                                            <div class="col-md-6">
-                                                <div class="form-group"> <label for="form_name">Firstname *</label> <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required."> </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group"> <label for="form_lastname">Lastname *</label> <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required."> </div>
-                                            </div>
-                                        </div>*@
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group"> <label for="form_email">Email *</label> <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required."> </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="form_need">Please specify your need *</label> <select id="form_need" name="need" class="form-control" required="required" data-error="Please specify your need.">
-                                                        <option value="" selected disabled>--Select Your Issue--</option>
-                                                        <option>Request Invoice for order</option>
-                                                        <option>Request order status</option>
-                                                        <option>Haven't received cashback yet</option>
-                                                        <option>Other</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group"> <label for="form_message">Subject *</label> <textarea id="form_message" name="message" class="form-control" placeholder="Write your subject here." rows="2" required="required" data-error="Please, leave us a message."></textarea> </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group"> <label for="form_message">Message *</label> <textarea id="form_message" name="message" class="form-control" placeholder="Write your message here." rows="5" required="required" data-error="Please, leave us a message."></textarea> </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend" style="height:38px;">
-                                                        <span class="input-group-text" id="inputGroupFileAddon01" style="color:#333; font-size:0.875rem;">Upload</span>
-                                                    </div>
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="inputGroupFile01"
-                                                               aria-describedby="inputGroupFileAddon01">
-                                                        <label class="custom-file-label" for="inputGroupFile01" style="font-size:15px;">Choose file</label>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-12" style="padding-top:20px;">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                                        <label class="form-check-label" for="flexRadioDefault1">
-                                                            SMS
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                                                        <label class="form-check-label" for="flexRadioDefault2">
-                                                           EMAIL
-                                                        </label>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <div class="col-md-3" style="padding-top:20px;"> <input type="submit" class="btn btn-warning btn-send pt-2 btn-block " value="Send Message"> </div>
-                                        </div>
-
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div> <!-- /.8 -->
-                </div> <!-- /.row-->
             </div>
         </div>
-
     </div>
 </div>
-<script>
-   
-    $(document).ready(function () {
 
-        var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
-            removeItemButton: true,
-            maxItemCount: 200,
-            searchResultLimit: 5,
-            renderChoiceLimit: 5
-        });
-
-
-    });
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script type="text/javascript">
+    debugger
+    function OnSuccess(response) {
+       
+            window.location.href = "/broadcast/Broadcast";
+       
+        alert("Email/SMS Sent Successfully");
+    }
+    function OnFailure(response) {
+        alert("Error occured.");
+    }
 </script>
+
+
+<script>
+$(document).ready(function () {
+    var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
+        removeItemButton: true,
+        maxItemCount: 200,
+        searchResultLimit: 5,
+        renderChoiceLimit: 5
+    });
+});
+</script>
+<script>
+        function yesnoCheck() {
+            if (document.getElementById('yesCheck').checked) {
+                document.getElementById('ifYes').style.visibility = 'visible';
+            }
+            else document.getElementById('ifYes').style.visibility = 'hidden';
+        }
+</script>
+
 
 

@@ -22,7 +22,7 @@ namespace DAL.Models
     #endregion login
 
 
-    #region customer
+    #region user
     public class CustomerViewModel
     {
         public int UserID { get; set; }
@@ -90,5 +90,13 @@ namespace DAL.Models
         public int UserID { get; set; }
         public Nullable<int> Status { get; set; }
         
+    }
+    public class BroadcastViewModel
+    {
+        public int ID { get; set; }        
+        public string Subject { get; set; }
+        public string Message { get; set; }
+        public string Docs { get; set; }
+        public string[] Email { get; set; }        
     }
 }

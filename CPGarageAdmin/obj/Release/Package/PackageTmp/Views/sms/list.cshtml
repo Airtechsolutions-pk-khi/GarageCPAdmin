@@ -8,7 +8,7 @@
     <div class="card-body">
         <div class="row form-group">
             <div class="col-8">
-                <h4 class="card-title m-0">SMS Billing</h4>
+                <h4 class="card-title m-0">SMS Report</h4>
             </div>
             <div class="col-4 text-right">
                 @Html.DropDownList("ddlUsers", new SelectList(ViewBag.Users, "UserID", "UserName"))
@@ -40,6 +40,44 @@
             </div>
         </div>
         <hr />
+        @*<div class="row">
+                <div class="col-12">
+                    <div class="table-responsive">
+                        <table id="order-listing1" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Company Name</th>
+                                    <th>SMSCount</th>
+                                    <th>ToDate</th>
+                                    <th>From Date</th>
+                                    <th>Total</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    foreach (var item in ViewBag.Data as List<DAL.Models.SmsBilling>)
+                                    {
+                                        <tr>
+                                            <td> @item.CompanyName</td>
+                                            <td> @item.SMSCount</td>
+                                            <td> @item.FromDate</td>
+                                            <td> @item.ToDate</td>
+                                            <td> @item.Total</td>
+
+                                            <td>
+                                                <button type="submit" class="btn btn-success p-2" onclick="@("print('"+item.CompanyName +"','"+item.SMSCount+"','"+item.FromDate+"','"+item.ToDate+"','"+item.Total+"','"+item.UserID +"')")">Generate Invoice</button>
+
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>*@
+
         <div class="row">
             <div class="col-12">
                 <div class="table-responsive">
@@ -55,23 +93,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @{
-                                foreach (var item in ViewBag.Data as List<DAL.Models.SmsBilling>)
-                                {
-                                    <tr>
-                                        <td> @item.CompanyName</td>
-                                        <td> @item.SMSCount</td>
-                                        <td> @item.FromDate</td>
-                                        <td> @item.ToDate</td>
-                                        <td> @item.Total</td>
-                                       
-                                        <td>
-                                            <button type="submit" class="btn btn-success p-2" onclick="@("print('"+item.CompanyName +"','"+item.SMSCount+"','"+item.FromDate+"','"+item.ToDate+"','"+item.Total+"','"+item.UserID +"')")">Generate Invoice</button>
+                            <tr>
+                                <td> CompanyName</td>
+                                <td> SMSCount</td>
+                                <td> FromDate</td>
+                                <td> ToDate</td>
+                                <td> Total</td>
 
-                                        </td>
-                                    </tr>
-                                }
-                            }
+                                <td>
+                                    <button type="submit" class="btn btn-success p-2">Generate Invoice</button>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -87,6 +119,7 @@
 
      function Search()
      {
+         debugger;
          var _fDate = $('#fDate').val();
          var _tDate = $('#tDate').val();
          var _userid= $('#ddlUsers').val();

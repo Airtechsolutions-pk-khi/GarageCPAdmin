@@ -19,7 +19,7 @@ namespace CPGarageAdmin.Controllers
         }
 
         [HttpPost]
-        public JsonResult Send(BroadcastViewModel modal, string isEmail)
+        public JsonResult Send(BroadcastViewModel modal, string isEmail, string sendall)
         {
             bool isSuccess = false;
             if (ModelState.IsValid)
@@ -28,6 +28,15 @@ namespace CPGarageAdmin.Controllers
                 {
                     if (isEmail == "Email")
                     {
+                        if (sendall == "ALL")
+                        {
+                            var sendAllEmail = repo.SendEmailToAllCustomer(modal);
+                            var adminemailB = repo.SendEmailToAdmin(modal);
+                            if(sendAllEmail == 1 && adminemailB == 1)
+                                return Json(new { success = true });
+                            else
+                                return Json(new { success = false });
+                        }
                         var cusemail = repo.SendEmailCustomer(modal);
                         var adminemail = repo.SendEmailToAdmin(modal);
                         if (cusemail == 1 && adminemail == 1)
@@ -36,11 +45,19 @@ namespace CPGarageAdmin.Controllers
                         else
                             return Json(new { success = false });
                     }
+                   
                     else
                     {
+                        if (sendall == "ALL")
+                        {
+                            var smsAll = repo.SmsdirectAll(modal);
+                            if (smsAll == "success")
+                                return Json(new { success = true });
+                            else
+                                return Json(new { success = false });
+                        }
                         var sms = repo.Smsdirect(modal);
                         if (sms == "success")
-
                             return Json(new { success = true });
                         else
                             return Json(new { success = false });

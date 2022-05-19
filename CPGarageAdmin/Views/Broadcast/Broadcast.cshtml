@@ -32,21 +32,18 @@
             margin-left: 10px;
             margin-right: 10px
         }
+        .imgGif{
+            display:none;
+        }
+
+
+        
     </style>
 </head>
-@*<script type="text/javascript">
-    function UserSuccess(result) {
-        if (result.success) {
-            window.location.href = "/broadcast/Broadcast";
-        }
-        else {
-            alert("Email/SMS Cannot send successfully")
-        }
-    }
-
-</script>*@
+ 
 <div class="card col-lg-12">
     <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <div class="card-body col-lg-12 ">
         <div class="row form-group">
             <div class="col-12 ">
@@ -58,7 +55,9 @@
                 <div class="col-12 grid-margin stretch-card ">
                     <div class="container">
                         @*@using (Html.BeginForm("Send", "Broadcast", FormMethod.Post, new { enctype = "multipart/form-data" }))*@
-                        @using (Ajax.BeginForm("Send", "Broadcast", new AjaxOptions { HttpMethod = "POST",
+                        @using (Ajax.BeginForm("Send", "Broadcast", new AjaxOptions
+                        {
+                            HttpMethod = "POST",
                             OnSuccess = "OnSuccess",
                             OnFailure = "OnFailure",
                         }))
@@ -85,6 +84,16 @@
                                         </div>
                                     </div>
 
+                                    <div class="col-md-12" style="padding-bottom:20px;">
+                                        <div class="form-check">
+                                            <input class="form-check-input" onclick="" type="checkbox" name="sendall" value="ALL" id="sendall">
+                                            <label class="form-check-label" for="flexRadioDefault">
+                                                Send To All Customers
+                                            </label>
+                                        </div>
+
+                                    </div>
+
                                     <div class="row">
                                         <div id="ifYes" class="col-md-12">
                                             <div class="form-group"> <label for="form_subject">Subject </label> <textarea id="form_subject" name="subject" class="form-control" placeholder="Write your subject here." rows="2" data-error="Please, leave us a message."></textarea> </div>
@@ -106,13 +115,13 @@
 
                                             <div class="col-md-12" style="padding-top:20px;">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" onclick="javascript:yesnoCheck();" type="radio" name="isEmail" value="SMS" id="noCheck">
+                                                    <input class="form-check-input" onclick="" type="radio" name="isEmail" value="SMS" id="noCheck">
                                                     <label class="form-check-label" for="flexRadioDefault1">
                                                         SMS
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" onclick="javascript:yesnoCheck();" type="radio" name="isEmail" id="yesCheck" value="Email" checked>
+                                                    <input class="form-check-input" onclick="" type="radio" name="isEmail" id="yesCheck" value="Email" checked>
                                                     <label class="form-check-label" for="flexRadioDefault2">
                                                         EMAIL
                                                     </label>
@@ -121,11 +130,13 @@
 
                                         </div>
                                         @*<div class="col-md-3" style="padding-top:20px;"> <input type="submit" class="btn btn-warning btn-send pt-2 btn-block " value="Send Message"> </div>*@
-                                        <button type="submit" class="btn btn-primary mr-2">Send</button>
+                                        <button type="submit" class="btn btn-primary mr-2 sendbtn">Send</button>
+                                        <img class="imgGif" src="~/assets/images/loading.gif" style="height:40px;" />
                                     </div>
 
                                 </div>
                             </form>
+
                         }
                     </div>
                 </div>
@@ -138,15 +149,33 @@
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
 <script type="text/javascript">
-    debugger
-    function OnSuccess(response) {
-       
-            window.location.href = "/broadcast/Broadcast";
-       
-        alert("Email/SMS Sent Successfully");
+
+    $(".sendbtn").click(function () {
+        $(".imgGif").show();       
+    });
+    
+
+    function OnSuccess(result) {
+        debugger
+        if (result.success) {
+            $(".imgGif").css("display", "none");               
+            //window.location.href = "/broadcast/Broadcast";     
+            swalAlert();
+            setTimeout(function () {
+                location.reload();
+            }, 5000);
+        }
+        else {
+            swal("Error Occured!", "Customer Can not Created Successfully", "error");
+        }
     }
-    function OnFailure(response) {
-        alert("Error occured.");
+
+    function swalAlert() {
+        swal({
+            title: "Email/SMS Sent Successfully!",
+            icon: "success",
+            button: "OK",
+        });
     }
 </script>
 
@@ -157,7 +186,8 @@ $(document).ready(function () {
         removeItemButton: true,
         maxItemCount: 200,
         searchResultLimit: 5,
-        renderChoiceLimit: 5
+        renderChoiceLimit: 5,
+        
     });
 });
 </script>
@@ -169,6 +199,7 @@ $(document).ready(function () {
             else document.getElementById('ifYes').style.visibility = 'hidden';
         }
 </script>
+
 
 
 

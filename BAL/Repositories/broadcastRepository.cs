@@ -182,7 +182,37 @@ namespace BAL.Repositories
                 return "failed";
             }
         }
-      
+        public string SmsdirectAll(BroadcastViewModel obj)
+        {
+            try
+            {                
+                var list = DBContext.Users.Where(x => x.StatusID == 1).ToList();
+                
+                foreach (var item in list)
+                {
+                    try
+                    {
+                        var mobileNo = item.ContactNo.Replace("+", "").Replace(" ", "");
+                        var SenderName = "GARAGE-AD";
+
+                        string remoteUrl = string.Format("https://mshastra.com/sendurl.aspx?user=20096101&pwd=dpgikb&senderid={0}&mobileno={1}&msgtext={2}&priority=High&CountryCode=ALL", SenderName, item.ContactNo, obj.Message);
+                        HttpWebRequest httpRequest = (HttpWebRequest)WebRequest.Create(remoteUrl);
+                        WebResponse response = httpRequest.GetResponse();
+                        StreamReader reader = new StreamReader(response.GetResponseStream());
+                        string result = reader.ReadToEnd();
+                    }
+                    catch { }
+                }
+
+                return "success";
+            }
+            catch (Exception ex)
+            {
+                return "failed";
+            }
+        }
+
+
         public List<User> getAllUsers()
         {
             List<SmsBilling> lst = new List<SmsBilling>();
@@ -193,6 +223,67 @@ namespace BAL.Repositories
             catch (Exception ex)
             {
                 return new List<User>();
+            }
+        }
+
+        public int SendEmailToAllCustomer(BroadcastViewModel obj)
+        {
+            
+            var list = DBContext.Users.Where(x => x.StatusID == 1).Select(x => x.Email).ToList();
+            foreach (var email in list)
+            {
+                string Bcc = email.ToString();
+
+                //Viewbag.Contact = "";
+                string ToEmail, SubJect, cc;
+                cc = "";
+
+                SubJect = obj.Subject;
+                string BodyEmail = System.IO.File.ReadAllText(System.Web.HttpContext.Current.Server.MapPath("~/Template") + "\\" + "contactcustomer.txt");
+                DateTime dateTime = DateTime.UtcNow.Date;
+                BodyEmail = BodyEmail.Replace("#Date#", dateTime.ToString("dd/MMM/yyyy"))
+                .Replace("#Message#", obj.Message.ToString());
+
+                try
+                {
+                    SendEmailToAllCus(SubJect, BodyEmail, Bcc);
+                }
+
+                catch (Exception ex)
+                {
+                    //ViewBag.Contact = "";
+                }
+
+            }
+            return 1;
+        }
+
+        public void SendEmailToAllCus(string Subject, string BodyEmail, string To)
+        {
+            try
+            {
+                MailMessage mail = new MailMessage();
+                mail.To.Add(To);
+
+                mail.From = new MailAddress("airtechgitrepo@gmail.com".ToString());
+                mail.Subject = Subject;
+                string Body = BodyEmail;
+                mail.Body = Body;
+                mail.IsBodyHtml = true;
+
+                SmtpClient smtp = new SmtpClient();
+
+                smtp.Port = int.Parse("587".ToString());
+                smtp.Host = "smtp.gmail.com".ToString(); //Or Your SMTP Server Address
+                smtp.Credentials = new System.Net.NetworkCredential("airtechgitrepo@gmail.com".ToString(), "Flutter2021".ToString());
+
+                smtp.EnableSsl = true;
+
+                smtp.Send(mail);
+            }
+            catch (Exception ex)
+            {
+
             }
         }
 

@@ -4,14 +4,19 @@
     ViewBag.Title = "add";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript">
     function UserSuccess(result) {
         if (result.success) {
-            window.location.href = "/customers/list";
+            swal({
+                title: "Email/SMS Sent Successfully!",
+                icon: "success",
+                button: "OK",
+            }); 
+            //window.location.href = "/customers/list";
         }
-        else {
-            alert("CUSTOMER CANNOT CREATED SUCCESSFULLY")
+        else {            
+            swal("Error Occured!", "Customer Can not Created Successfully", "error");
         }
     }
 
@@ -93,10 +98,10 @@
                     <div class="forms-sample">
                         <h4 class="card-title">SMS Activation</h4>
                         <div class="form-check" style="margin-left:20px">
-                            @Html.CheckBoxFor(model => model.IsSMSActivate, new { @class = "form-check-input", placeholder = "" ,@for= "exampleCheck1" })
-                            <label class="form-check-label" for="exampleCheck1" >SMS Activation</label>
+                            @Html.CheckBoxFor(model => model.IsSMSActivate, new { @class = "form-check-input", placeholder = "", @for = "exampleCheck1" })
+                            <label class="form-check-label" for="exampleCheck1">SMS Activation</label>
                         </div>
-                       
+
 
                     </div>
                 </div>

@@ -39,6 +39,7 @@ namespace BAL.Repositories
 
         public int SendEmailCustomer(BroadcastViewModel obj)
         {
+
             string[] arr = obj.Email;
             foreach (var email in arr)
             {
@@ -73,6 +74,13 @@ namespace BAL.Repositories
             try
             {
                 MailMessage mail = new MailMessage();
+
+                //if (model.Attachment.ContentLength > 0)
+                //{
+                //    string fileName = Path.GetFileName(model.Attachment.FileName);
+                //    mail.Attachments.Add(new Attachment(model.Attachment.InputStream, fileName));
+                //}
+
                 mail.To.Add(To);
 
                 mail.From = new MailAddress("airtechgitrepo@gmail.com".ToString());

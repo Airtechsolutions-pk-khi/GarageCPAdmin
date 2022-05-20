@@ -141,7 +141,7 @@
                                                                                                                 <tbody>
                                                                                                                     <tr>
                                                                                                                         <td style="">
-                                                                                                                            <img class="max-width" border="0" style="display:block; width: 130px;" alt="" data-proportionally-constrained="true" data-responsive="false" src="https://garagepos.com/en/images/GarageLogo.png">
+                                                                                                                            <img class="max-width" border="0" style="display:block; width: 130px;" alt="" data-proportionally-constrained="true" data-responsive="false" src="https://garagepos.com/ContentEn/images/logo-garage.svg">
                                                                                                                         </td>
                                                                                                                     </tr>
                                                                                                                     <tr>

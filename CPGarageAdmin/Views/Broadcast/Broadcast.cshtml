@@ -32,15 +32,13 @@
             margin-left: 10px;
             margin-right: 10px
         }
-        .imgGif{
-            display:none;
+
+        .imgGif {
+            display: none;
         }
-
-
-        
     </style>
 </head>
- 
+
 <div class="card col-lg-12">
     <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -67,7 +65,7 @@
                             <form id="contact-form" role="form">
                                 <div class="controls">
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 hide">
                                             <div class="form-group">
                                                 <label for="form_name">Select Customer to send SMS/EMAIL *</label>
                                                 <div class="row d-flex justify-content-center mt-100">
@@ -102,26 +100,21 @@
                                             <div class="form-group"> <label for="form_message">Message *</label> <textarea id="form_message" name="message" class="form-control" placeholder="Write your message here." rows="5" required="required" data-error="Please, leave us a message."></textarea> </div>
                                         </div>
                                         <div class="col-md-12">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend" style="height:38px;">
-                                                    <span class="input-group-text" id="inputGroupFileAddon01" style="color:#333; font-size:0.875rem;">Upload</span>
-                                                </div>
-                                                <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="inputGroupFile01" name="Docs"
-                                                           aria-describedby="inputGroupFileAddon01">
-                                                    <label class="custom-file-label" for="inputGroupFile01" style="font-size:15px;">Choose file</label>
-                                                </div>
+
+                                            <div class="col-md-12 " id="ifYes">
+                                                <label for="formFileMultiple" class="form-label" style="font-size:15px;"></label>
+                                                <input class="form-control " name="docs" type="file" id="formFileMultiple" multiple />
                                             </div>
 
                                             <div class="col-md-12" style="padding-top:20px;">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" onclick="" type="radio" name="isEmail" value="SMS" id="noCheck">
+                                                    <input class="form-check-input" onclick="yesnoCheck()" type="radio" name="isEmail" value="SMS" id="noCheck">
                                                     <label class="form-check-label" for="flexRadioDefault1">
                                                         SMS
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" onclick="" type="radio" name="isEmail" id="yesCheck" value="Email" checked>
+                                                    <input class="form-check-input" onclick="yesnoCheck()" type="radio" name="isEmail" id="yesCheck" value="Email" checked>
                                                     <label class="form-check-label" for="flexRadioDefault2">
                                                         EMAIL
                                                     </label>
@@ -129,7 +122,7 @@
                                             </div>
 
                                         </div>
-                                        @*<div class="col-md-3" style="padding-top:20px;"> <input type="submit" class="btn btn-warning btn-send pt-2 btn-block " value="Send Message"> </div>*@
+                                        
                                         <button type="submit" class="btn btn-primary mr-2 sendbtn">Send</button>
                                         <img class="imgGif" src="~/assets/images/loading.gif" style="height:40px;" />
                                     </div>
@@ -145,21 +138,21 @@
     </div>
 </div>
 
-    <script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
 <script type="text/javascript">
 
     $(".sendbtn").click(function () {
-        $(".imgGif").show();       
+        $(".imgGif").show();
     });
-    
+
 
     function OnSuccess(result) {
-        debugger
+       
         if (result.success) {
-            $(".imgGif").css("display", "none");               
-            //window.location.href = "/broadcast/Broadcast";     
+            $(".imgGif").css("display", "none");
+            //window.location.href = "/broadcast/Broadcast";
             swalAlert();
             setTimeout(function () {
                 location.reload();
@@ -181,23 +174,32 @@
 
 
 <script>
-$(document).ready(function () {
-    var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
-        removeItemButton: true,
-        maxItemCount: 200,
-        searchResultLimit: 5,
-        renderChoiceLimit: 5,
-        
+    $(document).ready(function () {
+        var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
+            removeItemButton: true,
+            maxItemCount: 200,
+            searchResultLimit: 5,
+            renderChoiceLimit: 5,
+
+        });
     });
-});
 </script>
 <script>
-        function yesnoCheck() {
-            if (document.getElementById('yesCheck').checked) {
-                document.getElementById('ifYes').style.visibility = 'visible';
-            }
-            else document.getElementById('ifYes').style.visibility = 'hidden';
+    function yesnoCheck() {
+        if (document.getElementById('yesCheck').checked) {
+            document.getElementById('ifYes').style.display = 'block';
         }
+        else document.getElementById('ifYes').style.display = 'none';
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        
+        $('input[type="checkbox"]').click(function () {
+            var inputValue = $(this).attr("value");
+            $(".hide").toggle();
+        });
+    });
 </script>
 
 

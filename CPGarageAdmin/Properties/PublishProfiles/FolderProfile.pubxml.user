@@ -279,6 +279,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="assets/images/lightbox/thumb-v-y-2.jpg">
       <publishTime>10/08/2019 12:20:50</publishTime>
     </File>
+    <File Include="assets/images/loading.gif">
+      <publishTime>05/19/2022 14:43:07</publishTime>
+    </File>
     <File Include="assets/images/login-bg.jpg">
       <publishTime>10/08/2019 14:08:56</publishTime>
     </File>
@@ -6193,19 +6196,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/08/2019 12:21:18</publishTime>
     </File>
     <File Include="bin/BAL.dll">
-      <publishTime>05/13/2022 21:21:49</publishTime>
+      <publishTime>05/19/2022 20:21:53</publishTime>
     </File>
     <File Include="bin/BAL.dll.config">
       <publishTime>05/12/2022 15:11:46</publishTime>
     </File>
     <File Include="bin/BAL.pdb">
-      <publishTime>05/13/2022 21:21:49</publishTime>
+      <publishTime>05/19/2022 20:21:53</publishTime>
     </File>
     <File Include="bin/CPGarageAdmin.dll">
-      <publishTime>05/13/2022 21:21:54</publishTime>
+      <publishTime>05/19/2022 20:21:57</publishTime>
     </File>
     <File Include="bin/CPGarageAdmin.pdb">
-      <publishTime>05/13/2022 21:21:54</publishTime>
+      <publishTime>05/19/2022 20:21:57</publishTime>
     </File>
     <File Include="bin/DAL.dll">
       <publishTime>05/13/2022 21:21:49</publishTime>
@@ -6394,19 +6397,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/09/2019 15:38:50</publishTime>
     </File>
     <File Include="Template/admin.txt">
-      <publishTime>05/13/2022 13:11:05</publishTime>
+      <publishTime>05/19/2022 14:33:05</publishTime>
     </File>
     <File Include="Template/contact.txt">
       <publishTime>05/12/2022 16:25:11</publishTime>
     </File>
     <File Include="Template/contactcustomer.txt">
-      <publishTime>05/13/2022 13:11:29</publishTime>
+      <publishTime>05/19/2022 14:33:37</publishTime>
     </File>
     <File Include="Template/HtmlPageAdmin.html">
-      <publishTime>05/13/2022 13:11:08</publishTime>
+      <publishTime>05/19/2022 14:32:53</publishTime>
     </File>
     <File Include="Template/HtmlPageCustomer.html">
-      <publishTime>05/12/2022 18:33:45</publishTime>
+      <publishTime>05/19/2022 14:33:30</publishTime>
     </File>
     <File Include="Template/invoice-sms.txt">
       <publishTime>08/05/2020 17:03:38</publishTime>
@@ -6415,13 +6418,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/05/2020 17:01:38</publishTime>
     </File>
     <File Include="Views/Broadcast/Broadcast.cshtml">
-      <publishTime>05/13/2022 13:27:53</publishTime>
+      <publishTime>05/19/2022 17:03:20</publishTime>
     </File>
     <File Include="Views/Broadcast/Send.cshtml">
       <publishTime>05/12/2022 17:45:56</publishTime>
     </File>
     <File Include="Views/customers/add.cshtml">
-      <publishTime>05/13/2022 12:50:18</publishTime>
+      <publishTime>05/19/2022 17:03:46</publishTime>
     </File>
     <File Include="Views/customers/list.cshtml">
       <publishTime>03/04/2022 17:26:20</publishTime>

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace DAL.Models
 {
@@ -96,7 +97,7 @@ namespace DAL.Models
         public int ID { get; set; }        
         public string Subject { get; set; }
         public string Message { get; set; }
-        public string Docs { get; set; }
+        public HttpPostedFileBase[] Docs { get; set; }
         public string[] Email { get; set; }        
     }
 }
